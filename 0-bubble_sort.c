@@ -10,9 +10,11 @@
 void bubble_sort(int *array, size_t size)
 {
     int i, j;
-    for (i = 0; i < size - 1; i++)
+    int n = size;
 
-        for (j = 0; j < size - i - 1; j++)
+    for (i = 0; i < n - 1; i++)
+
+        for (j = 0; j < n - i - 1; j++)
             if (array[j] > array[j + 1])
             swap(&array[j], & array[j + 1]);
 }
