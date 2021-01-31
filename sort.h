@@ -29,5 +29,7 @@ void quick_sort(int *array, size_t size);
 
 /* helper functions */
 void swap(int *xp, int *yp);
+int partition(array, size, low, high);
+void quicky(int *arr, size_t low, size_t high)
 
 #endif /* SORT_H */
