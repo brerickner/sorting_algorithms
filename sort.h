@@ -27,10 +27,13 @@ void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void counting_sort(int *array, size_t size);
+void quick_sort_hoare(int *array, size_t size);
 
 /* helper functions */
 void swap(int *xp, int *yp);
 int partition(int *arr, size_t size, int low, int high);
 void quicky(int *arr, size_t size, int low, int high);
+int hoare_partition(int *arr, size_t size, int low, int high);
+void quicky_hoare(int *arr, size_t size, int low, int high);
 
 #endif /* SORT_H */
