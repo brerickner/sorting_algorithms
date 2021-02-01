@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <strings.h>
+#include <string.h>
 
 
 /**
@@ -27,6 +27,7 @@ void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void quick_sort_hoare(int *array, size_t size);
+void counting_sort(int *array, size_t size);
 
 /* helper functions */
 void swap(int *xp, int *yp);
