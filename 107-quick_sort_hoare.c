@@ -4,8 +4,8 @@
  * quicky_hoare - arr[], low, high
  * @arr: doubly linked list
  * @size: size of array
- * @low: doubly linked list
- * @high: doubly linked list
+ * @low: starting index
+ * @high: ending index
  * description: function to quicksort arr with hoare partition
  * Return: void
  */
@@ -17,10 +17,10 @@ void quicky_hoare(int *arr, size_t size, int low, int high)
 	{
 	/* partyIndex is partitioning index, arr[pi] is now at right place */
 		partyIndex = hoare_partition(arr, size, low, high);
-		/* Separately sort elements before and after partition */
 
-		quicky_hoare(arr, size, low, partyIndex);  /* index */
-		quicky_hoare(arr, size, partyIndex + 1, high); /* After index */
+		/* Separately sort elements before and after partition */
+		quicky_hoare(arr, size, partyIndex, high);
+		quicky_hoare(arr, size, low, partyIndex - 1);
 	}
 }
 
@@ -72,7 +72,7 @@ int hoare_partition(int *arr, size_t size, int low, int high)
 		} while (arr[rtIndex] > pivot);
 
 		if (lftIndex >= rtIndex)
-			return (rtIndex);
+			return (lftIndex);
 
 		swap(&arr[lftIndex], &arr[rtIndex]);
 		print_array(arr, size);
