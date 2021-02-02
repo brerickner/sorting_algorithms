@@ -19,9 +19,9 @@ void quicky_hoare(int *arr, size_t size, int low, int high)
 		partyIndex = hoare_partition(arr, size, low, high);
 
 		/* Separately sort elements before and after partition */
-		quicky_hoare(arr, size, partyIndex, high);
 		quicky_hoare(arr, size, low, partyIndex - 1);
-	}
+		quicky_hoare(arr, size, partyIndex, high);
+		}
 }
 
 /**
