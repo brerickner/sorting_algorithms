@@ -9,22 +9,22 @@
 void counting_sort(int *array, size_t size)
 {
 	int i, n, max;
-	int count[1024];
-	int output[1024];
+	int *count;
+	int *output;
 
 	n = size;
 
-	/* max = array[0]; */
+	max = array[0];
 	/* changed to i to 0, finding max below */
-	for (i = 0; (size_t)i < size; i++)
+	for (i = 1; (size_t)i < size; i++)
 	{
 		if (array[i] > max)
 			max = array[i];
 	}
 	/* range is one greater than the max, malloc for that */
-	/* count = malloc(max + 1) * sizeof(int))*/
-	/* if (count = NULL) */
-	/*     return; */
+	count = malloc(sizeof(int) * (max + 1));
+	if (count == NULL)
+		return;
 
 	for (i = 0; i < max + 1; i++)
 		count[i] = 0;
@@ -34,7 +34,7 @@ void counting_sort(int *array, size_t size)
 
 	for (i = 1; i <= max; i++)
 		count[i] += count[i - 1];
-
+	output = malloc(sizeof(int) * size);
 	for (i = size - 1; (int)i >= 0; i--)
 	{
 		output[count[array[i]] - 1] = array[i];
@@ -44,4 +44,6 @@ void counting_sort(int *array, size_t size)
 	for (i = 0; (size_t)i < size; i++)
 		array[i] = output[i];
 	print_array(array, n);
+	free(count);
+	free(output);
 }
