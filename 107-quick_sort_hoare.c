@@ -74,9 +74,13 @@ int hoare_partition(int *arr, size_t size, int low, int high)
 		if (lftIndex >= rtIndex)
 			return (lftIndex);
 
-		swap(&arr[lftIndex], &arr[rtIndex]);
-		print_array(arr, size);
+		if (arr[lftIndex] != arr[rtIndex])
+		{
+			swap(&arr[lftIndex], &arr[rtIndex]);
+			print_array(arr, size);
+		}
 	}
+
 }
 
 /**
