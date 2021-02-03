@@ -21,6 +21,7 @@ void counting_sort(int *array, size_t size)
 		if (array[i] > max)
 			max = array[i];
 	}
+	print_array(array, n);
 	/* range is one greater than the max, malloc for that */
 	count = malloc(sizeof(int) * (max + 1));
 	if (count == NULL)
@@ -28,10 +29,10 @@ void counting_sort(int *array, size_t size)
 
 	for (i = 0; i < max + 1; i++)
 		count[i] = 0;
-
+	print_array(array, n);
 	for (i = 0; (size_t)i < size; i++)
 		count[array[i]]++;
-
+	print_array(array, n);
 	for (i = 1; i <= max; i++)
 		count[i] += count[i - 1];
 	output = malloc(sizeof(int) * size);
@@ -40,9 +41,12 @@ void counting_sort(int *array, size_t size)
 		output[count[array[i]] - 1] = array[i];
 		count[array[i]]--;
 	}
-
+	/* this is not matching the output on the intranet at all */
+	print_array(array, n);
 	for (i = 0; (size_t)i < size; i++)
 		array[i] = output[i];
+	print_array(array, n);
+	print_array(array, n);
 	print_array(array, n);
 	free(count);
 	free(output);
